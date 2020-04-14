@@ -1,0 +1,41 @@
+/* pages/course_index/course_index.wxss */
+/* 页面背景色 */
+page {
+  background: rgba(247, 247, 247, 1);
+}
+
+.nav_tab {
+  width: 702rpx;
+  margin: 20rpx auto;
+  height: 100rpx;
+  display: flex;
+  background: #fff;
+  border-radius: 10rpx;
+  flex-direction: row;
+}
+/* 未选中的样式 */
+.common {
+  line-height: 100rpx;
+  text-align: center;
+  flex: 1;
+  color: #333;
+  font-size: 28rpx;
+  opacity: 0.5;
+}
+/* 选中时的样式 */
+.active {
+  line-height: 100rpx;
+  text-align: center;
+  color: #ef9ba8;
+  flex: 1;
+  font-size: 28rpx;
+}
+/* 下划线的样式 */
+.nav_underline {
+  background: #ef9ba8;
+  width: 100rpx;
+  height: 6rpx;
+  margin-top: -10rpx;
+  margin-left: 70rpx;
+  border-radius: 8rpx;
+}
