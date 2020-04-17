@@ -1,1 +1,28 @@
 /* pages/message/message.wxss */
+.type_text{
+  display: block;
+  color: #000;
+  font-size: 16px;
+  text-align: center;
+}
+page{
+  height:100%;
+}
+.mymessage{
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.mymessage_item image{
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 120px auto 10px;
+}
+
+.type_text1{
+  display: block;
+  color: #bfbfbf;
+  font-size: 14px;
+  text-align: center;
+}

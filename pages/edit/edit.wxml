@@ -1,0 +1,41 @@
+<!--pages/edit/edit.wxml-->
+<view class="edit_title">
+<text>编辑个人信息</text>
+<!-- <navigator  url="/pages/mine/mine"><view><text>注册账号</text></view></navigator> -->
+<view class="edit_Save">
+<navigator  url="/pages/mine/mine" hover-class='register_hover' class="register">
+<view class="edit_Save_Item">
+<image src="../../image/arrow_Gou.png" class="icon_Gou"></image>
+<text>保存</text>
+</view>
+</navigator>
+</view>
+</view>
+
+<view>
+<view class="child">
+<image src="../../image/child.png"></image>
+</view>
+
+<view class="edit_Detail">
+<text class="edit_Detail_Name">姓名</text>
+<input type='text' placeholder="请输入姓名" placeholder-style='font-size: 14px;color: #999999;'></input>
+</view>
+
+<view class="edit_Detail">
+<text class="edit_Detail_Id">学号</text>
+<input type='text' placeholder="请输入学号" placeholder-style='font-size: 14px;color: #999999;'></input>
+</view>
+
+<view class="edit_Detail">
+<text class="edit_Detail_Tel">手机号</text>
+<input type='text' placeholder="请输入手机号" placeholder-style='font-size: 14px;color: #999999;'></input>
+</view>
+
+<view class="edit_Detail">
+<text class="edit_Detail_Email">邮箱</text>
+<input type='text' placeholder="请输入邮箱" placeholder-style='font-size: 14px;color: #999999;'></input>
+</view>
+
+</view>
+

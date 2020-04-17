@@ -1,3 +1,4 @@
+/* pages/register/register.wxss */
 /* pages/index/index.wxss */
 .type_text{
   display: flex;
@@ -52,13 +53,5 @@
   border: none;
   color: #fff;
 }
-.register{
-  float: right;
-  margin: 0px 30px;
-}
-.register_hover{
-  background-color: transparent;
-}
-
 
 

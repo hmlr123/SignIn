@@ -23,11 +23,7 @@ page{
     margin-top: 40rpx;
     color: rgb(20, 20, 20);
 }
-.style2{
-    margin-top: 30%;
-     margin-left:30%;
-   margin-right: 30%;
-}
+
 .style4{
    text-align:center;
     margin-top: 4%;

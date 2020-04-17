@@ -1,2 +1,54 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view class="mine_title">
+<text>我的</text>
+</view>
+
+<view class="mine">
+
+<view class="child">
+<image src="../../image/child.png"></image>
+</view>
+
+<view class="child_Item"><text>hello world!</text></view>
+
+<view class="mine_item">
+<navigator url="/pages/edit/edit">
+<view class="personal_data">  
+<image src="../../image/personal_Data.png"></image>
+<text>编辑个人资料</text>
+<image src="../../image/arrow.png" class="icon_arrow"></image>
+</view>
+</navigator>
+</view>
+
+<view class="mine_item">
+<navigator url="/pages/student_Attendance_Record/student_Attendance_Record">
+<view class="personal_data">  
+<image src="../../image/student_Attendance_Record.png"></image>
+<text>学生签到记录</text>
+<image src="../../image/arrow.png" class="icon_arrow"></image>
+</view>
+</navigator>
+</view>
+
+<view class="mine_item">
+<navigator url="/pages/teacher_Attendance_Record/teacher_Attendance_Record"hover-class='register_hover'class="register">
+<view class="personal_data">  
+<image src="../../image/teacher_Attendance_Record.png"></image>
+<text>教师签到记录</text>
+<image src="../../image/arrow.png" class="icon_arrow"></image>
+</view>
+</navigator>
+</view>
+
+<view class="mine_item">
+<navigator url="/pages/aboutWe/aboutWe">
+<view class="personal_data">  
+<image src="../../image/about_Us.png"></image>
+<text>关于我们</text>
+<image src="../../image/arrow.png" class="icon_arrow"></image>
+</view>
+</navigator>
+</view>
+
+</view>

@@ -11,16 +11,12 @@
       <view class="{{selected==index?'nav_underline':''}}"></view>
     </view>
   </view>
-  <!-- tab框显示内容  全部课程-->
-  <view wx:if="{{selected == 0}}">aaa
-
-  </view>
 
   <!-- 我听的课 -->
-  <view wx:if="{{selected == 1}}">bbb
+  <view wx:if="{{selected == 0}}">
   </view>
 
   <!-- 我教的课 -->
-  <view wx:if="{{selected == 2}}">ccc
+  <view wx:if="{{selected == 1}}">
   </view>
 </view>

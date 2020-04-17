@@ -1,7 +1,7 @@
-<!--pages/index/index.wxml-->
+<!--pages/register/register.wxml-->
 <view>
 <view>
-<text class="type_text">欢迎使用雨课堂</text>
+<text class="type_text">新用户注册</text>
 <text class="type_text1">账号</text>
 </view>
 
@@ -23,9 +23,5 @@
 </view>
 </view>
 
-<view><button bindtap="login" class="login">登陆</button></view>
-
-<view>
-<navigator  url="/pages/register/register" hover-class='register_hover' class="register"><view><text>注册账号</text></view></navigator>
-</view>
+<view><button bindtap="login" class="login">立即注册</button></view>
 </view>

@@ -1,2 +1,11 @@
 <!--pages/message/message.wxml-->
-<text>pages/message/message.wxml</text>
+<view class="mymessage">
+  <text class="type_text">我的通知</text>
+</view>
+<view class="mymessage_item">
+  <image src="../../image/messages.png"></image>
+  <text class="type_text1">还没有收到通知\n重要的教学活动通知，会在这里提示 </text>
+</view>
+	
+
+

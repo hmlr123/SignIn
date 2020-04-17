@@ -1,6 +1,12 @@
 {
   "pages": [
+    "pages/mine/mine",
+    "pages/edit/edit",
+    "pages/student_Attendance_Record/student_Attendance_Record",
+    "pages/teacher_Attendance_Record/teacher_Attendance_Record",
+    "pages/message_card/message_card",
     "pages/index/index",
+    "pages/register/register",
     "pages/index_back/index",
     "pages/student_index/student_index",
     "pages/check/check",
@@ -15,8 +21,7 @@
     "pages/feedback/feedback",
     "pages/myinfo/myinfo",
     "pages/message/message",
-    "pages/course_index/course_index",
-    "pages/mine/mine"
+    "pages/course_index/course_index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -25,7 +30,7 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#dddddd",
+    "color": "#000",
     "selectedColor": "#1296db",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
