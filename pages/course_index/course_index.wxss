@@ -36,6 +36,52 @@ page {
   width: 100rpx;
   height: 6rpx;
   margin-top: -10rpx;
-  margin-left: 70rpx;
+  margin-left: 120rpx;
   border-radius: 8rpx;
+}
+
+
+/*卡片设置*/
+.content {
+  width: 702rpx;
+  margin: 10rpx auto;
+  height: 80px;
+  background: #ef9ba8;
+  border-radius: 10rpx;
+  flex-direction: column;
+  padding-top: 2px;
+}
+/*卡片顶部*/
+.content_top {
+  margin: 20rpx;
+  flex-direction: row;
+}
+.course_name{
+  float: left;
+  color: #fff;
+  font-weight: 700;
+}
+.class_manage{
+  float: right;
+  margin-right: 10px;
+  width:15px; 
+  height:15px;
+}
+
+
+/*卡片底部*/
+.content_bottom {
+  height: 20px;
+  margin:80rpx 20rpx 20rpx;
+  margin-top: 55px;
+  flex-direction: row;
+}
+.class_name{
+  font-size: 12px;
+  color: #fff;
+  /* margin-bottom: 10px; */
+}
+.teacher_name{
+  display: block;
+  float: right;
 }

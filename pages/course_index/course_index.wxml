@@ -2,6 +2,12 @@
 <template>
 </template>
 
+<movable-area style="pointer-events: none;height: 100%;width: 100%;position:absolute;left:0px;top:0px;">
+  	<movable-view direction="all" style="pointer-events: auto;height: 50px; width: 50px;">
+    		<image src='../../image/add.png' style="height: 30px; width:30px;"></image>
+	  </movable-view>
+</movable-area>
+
 <!-- tab框  -->
 <view class="nav_title">
   <view class="nav_tab">
@@ -14,9 +20,30 @@
 
   <!-- 我听的课 -->
   <view wx:if="{{selected == 0}}">
-  </view>
 
-  <!-- 我教的课 -->
-  <view wx:if="{{selected == 1}}">
-  </view>
+    <navigator url="/pages/course_detail/course_detail">
+      <view class="content"> 
+        <view class="content_top">
+        <!-- 课程名称 -->
+          <view class="course_name">数据结构</view>
+          <!-- 课程管理 -->
+          <image src="../../image/more.png"  class="class_manage"></image>
+        </view>
+
+        <view class="content_bottom">
+        <!-- 班级名称 + 学生数量 -->
+          <view class="class_name">
+          <text decode="{{true}}"> 软件11603班&nbsp;&nbsp; &nbsp; &nbsp;30 </text>
+          <!-- 教师名称 -->
+          <text class="teacher_name">梨花带雨</text>
+          </view>
+        </view>
+      </view>
+    </navigator>
+</view>
+      
+  
+    <!-- 我教的课 -->
+    <view wx:if="{{selected == 1}}">
+    </view>
 </view>

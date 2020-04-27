@@ -10,7 +10,7 @@
 <image src="../../image/user.png"></image>
 <input class="inputinfo" type='text' placeholder="请输入账号："></input>
 </view>
-</view>
+</view> 
 
 <view>
 <text class="type_text1">密码</text>

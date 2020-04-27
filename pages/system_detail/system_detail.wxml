@@ -1,0 +1,15 @@
+<!--pages/system_detail/system_detail.wxml-->
+<view class="message_Detail">
+  <text class="type_Text">系统通知</text>
+</view>
+
+<view class="message_Content">
+  <view class="message_Content_Title"> 
+    <text>该小程序又有新的功能啦！</text>
+  </view>
+  <view class="message_Time">
+    <text decode="{{true}}">2020/04/18&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;梨花带雨</text>
+  </view>
+  <text class="notice_Detail_Content" decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;针对传统的课堂点名方式不仅浪费宝贵的时间,而且加重了教师的工作量,因此,借助微信平台为入口,基于微信小程序建立一个课堂考勤系统!</text>
+</view> 
+

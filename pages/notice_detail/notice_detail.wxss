@@ -1,0 +1,29 @@
+/* pages/notice_detail/notice_detail.wxss */
+.type_Text{
+  display: block;
+  color: #000;
+  font-size: 16px;
+  text-align: center;
+}
+.message_Detail{
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+  /* margin-bottom: 10px; */
+}
+
+.message_Content{
+  margin: 10px 20px;
+  }
+.message_Content_Title{
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.message_Time{
+  font-size: 12px;
+  color: #bfbfbf;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+.notice_Detail_Content{
+  font-size: 14px;
+}

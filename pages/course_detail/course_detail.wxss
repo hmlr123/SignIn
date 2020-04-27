@@ -1,0 +1,28 @@
+/* pages/course_detail/course_detail.wxss */
+.course_Detail{
+  margin: 10px 20px;
+}
+.course_Detail_Title {
+  height: 30px;
+  border-bottom: 1px solid #ccc;
+  font-weight: 700;
+}
+.style1{
+  display: inline-block;
+  margin-left:30px; 
+  margin-top: 5px;
+  font-size: 16px;
+}
+.course_Member{
+  float:left;
+  margin-top: 30px;
+  height: 70px;
+  width: 33.333%;
+
+}
+.course_Member image{
+  display: block;
+  margin: 0 auto;
+  height: 45px;
+  width: 45px;
+}

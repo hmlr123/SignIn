@@ -1,40 +1,18 @@
-// pages/myinfo/myinfo.js
+// pages/homework_detail/homework_detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    myName: "",
-    myNum: ""
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    var userid = wx.getStorageSync('openid');
-    wx.request({
-      url: 'https://newCourse.hmlr123.com',
-      data: {
-        userid: userid,
-        flag: 'myInfo'
-      },
-      method: 'POST',
-      header: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      success: function (res) {
-        console.log(res.data);
-        that.setData({
-          myName: res.data.backName,
-          myNum: res.data.backNum
-        });
-      },
-      fail: function (res) {
-        console.log("获取我的信息失败");
-      },
-      complete: function (res) { },
-    })
+
   },
 
   /**

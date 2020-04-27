@@ -1,7 +1,7 @@
 <!--pages/index/index.wxml-->
 <view>
 <view>
-<text class="type_text">欢迎使用雨课堂</text>
+<text class="type_text">欢迎使用云课堂</text>
 <text class="type_text1">账号</text>
 </view>
 

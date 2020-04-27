@@ -1,11 +1,19 @@
 {
   "pages": [
+    "pages/course_detail/course_detail",
+    
+    "pages/index/index",
+    "pages/course_index/course_index",    
+    "pages/message/message",
+    "pages/homework_detail/homework_detail",
+    "pages/system_detail/system_detail",
+    "pages/message_detail/message_detail",
+    "pages/notice_detail/notice_detail",
     "pages/mine/mine",
     "pages/edit/edit",
     "pages/student_Attendance_Record/student_Attendance_Record",
     "pages/teacher_Attendance_Record/teacher_Attendance_Record",
     "pages/message_card/message_card",
-    "pages/index/index",
     "pages/register/register",
     "pages/index_back/index",
     "pages/student_index/student_index",
@@ -17,11 +25,7 @@
     "pages/history/history",
     "pages/historylist/historylist",
     "pages/hsignlist/hsignlist",
-    "pages/aboutWe/aboutWe",
-    "pages/feedback/feedback",
-    "pages/myinfo/myinfo",
-    "pages/message/message",
-    "pages/course_index/course_index"
+    "pages/aboutWe/aboutWe"
   ],
   "window": {
     "backgroundTextStyle": "light",
