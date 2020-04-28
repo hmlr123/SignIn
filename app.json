@@ -1,9 +1,8 @@
 {
-  "pages": [
-    "pages/course_detail/course_detail",
-    
+  "pages": [    
+    "pages/course_index/course_index",   
     "pages/index/index",
-    "pages/course_index/course_index",    
+    "pages/course_detail/course_detail", 
     "pages/message/message",
     "pages/homework_detail/homework_detail",
     "pages/system_detail/system_detail",

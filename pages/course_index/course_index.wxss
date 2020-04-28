@@ -85,3 +85,11 @@ page {
   display: block;
   float: right;
 }
+
+/*添加按钮*/
+.add_button{
+  pointer-events: auto;
+  height: 50px;
+  width: 50px; 
+  float: right;
+}

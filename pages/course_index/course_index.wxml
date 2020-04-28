@@ -3,47 +3,79 @@
 </template>
 
 <movable-area style="pointer-events: none;height: 100%;width: 100%;position:absolute;left:0px;top:0px;">
-  	<movable-view direction="all" style="pointer-events: auto;height: 50px; width: 50px;">
-    		<image src='../../image/add.png' style="height: 30px; width:30px;"></image>
-	  </movable-view>
+	<movable-view direction="all" class="add_button" bindtap="openActionsheet" style="pointer-events: auto;height: 50px; width: 50px; ">
+		<image id="addButton" src='../../image/add.png' style="height: 30px; width:30px;"></image>
+	</movable-view>
 </movable-area>
 
 <!-- tab框  -->
 <view class="nav_title">
-  <view class="nav_tab">
-  <!-- 如果选中的下表等于当前的索引，就使用active class名，否则class名为common -->
-    <view wx:for="{{list}}" wx:key="list" class="{{selected==index?'active':'common'}}" data-index='{{index}}' bindtap="selected">{{item}}
-  <!-- 如果选中的下表等于当前的索引，就添加下划线 -->   
-      <view class="{{selected==index?'nav_underline':''}}"></view>
-    </view>
-  </view>
+	<view class="nav_tab">
+		<!-- 如果选中的下表等于当前的索引，就使用active class名，否则class名为common -->
+		<view wx:for="{{list}}" wx:key="list" class="{{selected==index?'active':'common'}}" data-index='{{index}}' bindtap="selected">{{item}}
+			<!-- 如果选中的下表等于当前的索引，就添加下划线 -->
+			<view class="{{selected==index?'nav_underline':''}}"></view>
+		</view>
+	</view>
 
-  <!-- 我听的课 -->
-  <view wx:if="{{selected == 0}}">
+	<!-- 我听的课 -->
+	<view wx:if="{{selected == 0}}">
+		<!-- 使用 wx:for-item 指定数组当前元素的变量名，
+  使用 wx:for-index 指定数组当前下标的变量名 
+  使用 wx:key 来指定列表中项目的唯一的标识符-->
+		<block wx:for="{{my_course}}" wx:for-index="idx" wx:for-item="item" wx:key="item.id">
+			<navigator url="/pages/course_detail/course_detail?courseId={{item.id}}" >
+				<view class="content">
+					<view class="content_top">
+						<!-- 课程名称 -->
+						<view class="course_name">{{item.courseName}}</view>
+						<!-- 课程管理 catchtap 冒泡管理-->
+						<image catchtap="classManage" data-courseid="{{item.id}}" src="../../image/more.png" class="class_manage"></image>
+					</view>
 
-    <navigator url="/pages/course_detail/course_detail">
-      <view class="content"> 
-        <view class="content_top">
-        <!-- 课程名称 -->
-          <view class="course_name">数据结构</view>
-          <!-- 课程管理 -->
-          <image src="../../image/more.png"  class="class_manage"></image>
-        </view>
+					<view class="content_bottom">
+						<!-- 班级名称 + 学生数量 -->
+						<view class="class_name">
+							<text decode="{{true}}"> 学生数量：{{item.stuCount}} </text>
+							<!-- 教师名称 -->
+							<text class="teacher_name">{{item.teacherName}}</text>
+						</view>
+					</view>
+				</view>
+			</navigator>
+		</block>
+	</view>
 
-        <view class="content_bottom">
-        <!-- 班级名称 + 学生数量 -->
-          <view class="class_name">
-          <text decode="{{true}}"> 软件11603班&nbsp;&nbsp; &nbsp; &nbsp;30 </text>
-          <!-- 教师名称 -->
-          <text class="teacher_name">梨花带雨</text>
-          </view>
-        </view>
-      </view>
-    </navigator>
+
+	<!-- 我教的课 -->
+	<view wx:if="{{selected == 1}}">
+		<block wx:for="{{lis_course}}" wx:for-index="idx" wx:for-item="item" wx:key="item.id">
+			<navigator url="/pages/course_detail/course_detail?courseId={{item.id}}">
+				<view class="content">
+					<view class="content_top">
+						<!-- 课程名称 -->
+						<view class="course_name">{{item.courseName}}</view>
+						<!-- 课程管理 -->
+						<image catchtap="myclassManage" data-courseid="{{item.id}}" src="../../image/more.png" class="class_manage"></image>
+					</view>
+
+					<view class="content_bottom">
+						<!-- 班级名称 + 学生数量 -->
+						<view class="class_name">
+							<text decode="{{true}}"> 学生数量：{{item.stuCount}} </text>
+							<!-- 教师名称 -->
+							<text class="teacher_name">{{item.teacherName}}</text>
+						</view>
+					</view>
+				</view>
+			</navigator>
+		</block>
+	</view>
 </view>
-      
-  
-    <!-- 我教的课 -->
-    <view wx:if="{{selected == 1}}">
-    </view>
-</view>
+
+<!-- 重构输入框 合并 -->
+<!-- 弹出菜单，用于输入课程码、签到码 -->
+<modal hidden="{{hiddenmodalput}}" title="{{model_title}}" confirm-text="提交" cancel-text="返回" bindcancel="addCourseConfirmCancel" bindconfirm="addCourseConfirm">
+<!-- 这里需要使用bindblur才能获取值 -->
+	    <input type='text'  data-type= "{{input_type}}" placeholder="请输入内容" bindblur="getInputCurseCode" auto-focus/>
+</modal>
