@@ -1,64 +1,74 @@
 /* pages/message/message.wxss */
-.type_text{
+
+.type_text {
   display: block;
   color: #000;
   font-size: 16px;
   text-align: center;
 }
-page{
-  height:100%;
+
+page {
+  height: 100%;
 }
-.mymessage{
+
+.mymessage {
   border-bottom: 1px solid #ccc;
   padding-bottom: 5px;
 }
 
-.mymessage_Card{
+.mymessage_Card {
   height: 50px;
   border-bottom: 1px solid #ccc;
   margin-top: 10px;
   padding-bottom: 5px;
 }
 
-.mymessage_Card_Item image{
+.mymessage_Card_Item image {
   float: left;
   height: 40px;
   width: 40px;
   line-height: 50px;
   margin: 5px 15px;
 }
-.mymessage_Card_Title{
+
+.mymessage_Card_Title {
   font-weight: 700;
 }
-.message_Date{
+
+.message_Date {
   display: block;
   float: right;
   margin-right: 20px;
 }
-.mymessage_Card_Content{
+
+.mymessage_Card_Content {
   display: inline-block;
   font-size: 14px;
   color: #bfbfbf;
   margin-top: 4px;
 }
 
-.mymessage_Card_Item .message_num{
+.mymessage_Card_Item .message_num {
   float: right;
   height: 20px;
   width: 20px;
   margin-right: 30px;
 }
 
-.mymessage_item image{
+.mymessage_item image {
   display: block;
   width: 100px;
   height: 100px;
   margin: 120px auto 10px;
 }
 
-.type_text1{
+.type_text1 {
   display: block;
   color: #bfbfbf;
   font-size: 14px;
   text-align: center;
+}
+
+.noshadow {
+  hover-class: none;
 }

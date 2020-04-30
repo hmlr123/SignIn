@@ -1,18 +1,50 @@
 // pages/course_detail/course_detail.js
+// 获取全局实例
+const app = getApp()
+const base_url = app.globalData.base_url
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    id: '',
+    teacherId: '',
+    teacherName: '',
+    courseName: '',
+    courseDetails: '',
+    courseDescription: ''
   },
+
+
+
+  /************************************网络***************************************/
+  loadCourseInfo: function (courseId) {
+    var that = this
+    wx.request({
+      url: base_url + "course/getCourseByCourseId/" + courseId,
+      success: function (res) {
+        var data = res.data.data
+        that.setData({
+          id: data.id,
+          teacherId: data.teacherId,
+          teacherName: data.teacherName,
+          courseName: data.courseName,
+          courseDetails: data.courseDetails,
+          courseDescription: data.courseDescription
+        })
+      },
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 加载课程信息
+    console.log(options.courseId)
+    this.loadCourseInfo(options.courseId)
   },
 
   /**

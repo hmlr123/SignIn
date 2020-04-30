@@ -83,11 +83,11 @@ App({
 
   },
    globalData: {
-    userInfo: null,
     // 服务器地址
     // base_url: "https://newcourse.hmlr123.com/",
     // 本地地址 开发环境
-    base_url: "https://test.hmlr123.com/"
+    base_url: "https://test.hmlr123.com/",
+    userInfo:null
   },
 
   resReslove: function(res) {

@@ -1,1 +1,16 @@
 /* pages/teacher_Attendance_Record/teacher_Attendance_Record.wxss */
+.row_flex{
+  justify-content:space-around;
+  flex-direction: row;
+  display: flex;
+}
+
+/* 横着的分割View样式 */
+/*分割线样式*/
+.divLine{
+  background: #E0E3DA;
+  width: 100%;
+  height: 1rpx;
+  margin-top: 3rpx;
+  margin-bottom: 3rpx;
+ }

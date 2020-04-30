@@ -1,4 +1,7 @@
-// pages/message_card/message_card.js
+// pages/create_Course/create_Course.js
+// 获取全局实例
+const app = getApp()
+const base_url = app.globalData.base_url
 Page({
 
   /**
@@ -6,6 +9,27 @@ Page({
    */
   data: {
 
+  },
+
+  createCourse:function(data) {
+    var userId = app.globalData.userInfo.id;
+    wx.request({
+      url: base_url + "course/addCourse",
+      method:'POST',
+      data: {
+        teacherId:userId,
+        className:data.detail.value.className,
+        courseName: data.detail.value.courseName,
+        teacherName: data.detail.value.teacherName,
+        courseDescription:data.detail.value.courseDesc
+      },
+      complete:function(res) {
+        wx.showModal({
+          title:res.data.msg
+        })
+      }
+    })
+    data.detail.value.courseName
   },
 
   /**

@@ -1,51 +1,64 @@
 /* pages/mine/mine.wxss */
-.mine_title{
+
+.mine_title {
   font-size: 16px;
   text-align: center;
   border-bottom: 1px solid #ccc;
   padding-bottom: 5px;
 }
-.child{
+
+.child {
   width: 135px;
   height: 135px;
   border: 1px solid #ccc;
   border-radius: 50%;
   margin: 0 auto;
 }
-.child image{
-  display:block;
+
+.child image {
+  display: block;
   width: 133px;
   height: 133px;
   margin: 0 auto;
 }
-.child_Item{
+
+.child_Item {
   font-size: 16px;
   text-align: center;
   margin: 10px auto 20px;
 }
-.mine{
+
+.mine {
   margin: 20px;
 }
-.mine_item{
+
+.mine_item {
   border-bottom: 1px solid #ccc;
   padding-bottom: 3px;
   margin-bottom: 20px;
 }
-.personal_data image{
+
+.personal_data image {
   display: inline-block;
   width: 28px;
   height: 28px;
   vertical-align: middle;
 }
-.personal_data text{
+
+.personal_data text {
   margin-left: 15px;
   font-size: 15px;
 }
-.personal_data .icon_arrow{
+
+.personal_data .icon_arrow {
   float: right;
   margin-top: 6px;
   margin-right: 5px;
   width: 15px;
   height: 15px;
   vertical-align: middle;
+}
+
+.noshadow {
+  hover-class: none;
 }

@@ -1,8 +1,0 @@
-<!--pages/message_card/message_card.wxml-->
-<view class="mine">
-<view class="mine_item">
-<navigator url="/pages/register/register"hover-class='register_hover'class="register">
-<view><text>编辑个人资料</text></view>
-</navigator>
-</view>
-</view>

@@ -2,90 +2,87 @@
 <view class="mymessage">
   <text class="type_text">我的通知</text>
 </view>
-<navigator url="/pages/message_detail/message_detail">
-<view class="mymessage_Card">
-  <view class="mymessage_Card_Item">
-    <image src="../../image/sign.png"></image>
-    <view>
-    <view>
-      <text class="mymessage_Card_Title">签到通知</text>
-      <text class="message_Date">04-18</text>
-    </view>
+<navigator url="/pages/message_detail/message_detail" hover-class="noshadow">
+  <view class="mymessage_Card">
+    <view class="mymessage_Card_Item">
+      <image src="../../image/sign.png"></image>
       <view>
-        <view class="mymessage_Card_Content">
-          <text>从现在开始每天记得微笑吧</text>
+        <view>
+          <text class="mymessage_Card_Title">签到通知</text>
+          <text class="message_Date">04-18</text>
         </view>
+        <view>
+          <view class="mymessage_Card_Content">
+            <text>从现在开始每天记得微笑吧</text>
+          </view>
           <image src="../../image/num.png" class="message_num"></image>
+        </view>
       </view>
     </view>
   </view>
-</view>
 </navigator>
 
-<navigator url="/pages/notice_detail/notice_detail">
-<view class="mymessage_Card">
-  <view class="mymessage_Card_Item">
-    <image src="../../image/notice.png"></image>
-    <view>
-    <view>
-      <text class="mymessage_Card_Title">公告通知</text>
-      <text class="message_Date">04-18</text>
-    </view>
+<navigator url="/pages/notice_detail/notice_detail" hover-class="noshadow">
+  <view class="mymessage_Card">
+    <view class="mymessage_Card_Item">
+      <image src="../../image/notice.png"></image>
       <view>
-        <view class="mymessage_Card_Content">
-          <text>从现在开始每天记得微笑吧</text>
+        <view>
+          <text class="mymessage_Card_Title">公告通知</text>
+          <text class="message_Date">04-18</text>
         </view>
+        <view>
+          <view class="mymessage_Card_Content">
+            <text>从现在开始每天记得微笑吧</text>
+          </view>
           <image src="../../image/num.png" class="message_num"></image>
+        </view>
       </view>
     </view>
   </view>
-</view>
 </navigator>
 
-<navigator url="/pages/homework_detail/homework_detail">
-<view class="mymessage_Card">
-  <view class="mymessage_Card_Item">
-    <image src="../../image/homework.png"></image>
-    <view>
-    <view>
-      <text class="mymessage_Card_Title">作业通知</text>
-      <text class="message_Date">04-18</text>
-    </view>
+<navigator url="/pages/homework_detail/homework_detail" hover-class="noshadow">
+  <view class="mymessage_Card">
+    <view class="mymessage_Card_Item">
+      <image src="../../image/homework.png"></image>
       <view>
-        <view class="mymessage_Card_Content">
-          <text>从现在开始每天记得微笑吧</text>
+        <view>
+          <text class="mymessage_Card_Title">作业通知</text>
+          <text class="message_Date">04-18</text>
         </view>
+        <view>
+          <view class="mymessage_Card_Content">
+            <text>从现在开始每天记得微笑吧</text>
+          </view>
           <image src="../../image/num.png" class="message_num"></image>
+        </view>
       </view>
     </view>
   </view>
-</view>
 </navigator>
 
-<navigator url="/pages/system_detail/system_detail">
-<view class="mymessage_Card">
-  <view class="mymessage_Card_Item">
-    <image src="../../image/system_message.png"></image>
-    <view>
-    <view>
-      <text class="mymessage_Card_Title">系统通知</text>
-      <text class="message_Date">04-18</text>
-    </view>
+<navigator url="/pages/system_detail/system_detail" hover-class="noshadow">
+  <view class="mymessage_Card">
+    <view class="mymessage_Card_Item">
+      <image src="../../image/system_message.png"></image>
       <view>
-        <view class="mymessage_Card_Content">
-          <text>从现在开始每天记得微笑吧</text>
+        <view>
+          <text class="mymessage_Card_Title">系统通知</text>
+          <text class="message_Date">04-18</text>
         </view>
+        <view>
+          <view class="mymessage_Card_Content">
+            <text>从现在开始每天记得微笑吧</text>
+          </view>
           <image src="../../image/num.png" class="message_num"></image>
+        </view>
       </view>
     </view>
   </view>
-</view>
 </navigator>
 
 <!-- <view class="mymessage_item">
   <image src="../../image/messages.png"></image>
   <text class="type_text1">还没有收到通知\n重要的教学活动通知,会在这里提示 </text>
 </view> -->
-	
-
-

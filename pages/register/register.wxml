@@ -1,27 +1,30 @@
 <!--pages/register/register.wxml-->
 <view>
-<view>
-<text class="type_text">新用户注册</text>
-<text class="type_text1">账号</text>
-</view>
+	<form bindsubmit="register">
+		<view>
+			<text class="type_text">新用户注册</text>
+			<text class="type_text1">账号</text>
+		</view>
 
-<view class="user_name">
-<view class="user_name_item">
-<image src="../../image/user.png"></image>
-<input class="inputinfo" type='text' placeholder="请输入账号："></input>
-</view>
-</view> 
+		<view class="user_name">
+			<view class="user_name_item">
+				<image src="../../image/user.png"></image>
+				<input name="username" class="inputinfo" type='text' placeholder="请输入账号："></input>
+			</view>
+		</view>
 
-<view>
-<text class="type_text1">密码</text>
-</view>
+		<view>
+			<text class="type_text1">密码</text>
+		</view>
 
-<view class="psd">
-<view class="psd_item">
-<image src="../../image/password.png"></image>
-<input class="inputinfo" type='password' placeholder="请输入密码："></input>
-</view>
-</view>
+		<view class="psd">
+			<view class="psd_item">
+				<image src="../../image/password.png"></image>
+				<input name="password" class="inputinfo" type='password' placeholder="请输入密码："></input>
+			</view>
+		</view>
 
-<view><button bindtap="login" class="login">立即注册</button></view>
+		<view><button form-type="submit" class="login">立即注册</button></view>
+	</form>
+
 </view>

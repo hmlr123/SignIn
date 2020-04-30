@@ -1,7 +1,7 @@
-/* pages/edit/edit.wxss */
+/* pages/create_Course/create_Course.wxss */
 .edit_title{
   height: 50px;
-  background-color: #649DF4;
+  background-color: #ef9ba8;
 }
 .edit_title text{
     margin: 0 20px;
@@ -24,7 +24,7 @@
 }
 
 .edit_Save_Item{
-  background: #649DF4;
+  background: #ef9ba8;
   border: none;
   outline: none;
 }

@@ -2,11 +2,19 @@
 <template>
 </template>
 
-<movable-area style="pointer-events: none;height: 100%;width: 100%;position:absolute;left:0px;top:0px;">
+<!-- <movable-area style="pointer-events: none;height: 100%;width: 100%;position:absolute;left:0px;top:0px;">
 	<movable-view direction="all" class="add_button" bindtap="openActionsheet" style="pointer-events: auto;height: 50px; width: 50px; ">
 		<image id="addButton" src='../../image/add.png' style="height: 30px; width:30px;"></image>
 	</movable-view>
+</movable-area> -->
+
+<view bindtap='adddetial'>
+<movable-area style="pointer-events: none;position:fixed;right:20px;bottom:23px;">
+	<movable-view direction="none" class="add_button" bindtap="openActionsheet" style="pointer-events: auto;height: 30px; width: 30px; ">
+		<image class="add_icon" src="../../image/add.png"></image>
+	</movable-view>
 </movable-area>
+</view>
 
 <!-- tab框  -->
 <view class="nav_title">

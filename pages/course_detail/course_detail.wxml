@@ -1,10 +1,10 @@
 <!--pages/course_detail/course_detail.wxml-->
 <view class="course_Detail">
   <view class="course_Detail_Title">
-    <text decode="{{true}}">软件11603班&nbsp;&nbsp;&nbsp;&nbsp;数据结构 </text>
+    <text decode="{{true}}">{{courseName}}</text>
   </view>
   <view class="class_Produce">
-    <text decode="{{true}}">班级简介：\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据结构(data structure)是带有结构特性的数据元素的集合，它研究的是数据的逻辑结构和数据的物理结构以及它们之间的相互关系，并对这种结构定义相适应的运算，设计出相应的算法，并确保经过这些运算以后所得到的新结构仍保持原来的结构类型。简而言之，数据结构是相互之间存在一种或多种特定关系的数据元素的集合，即带“结构”的数据元素的集合。</text>
+    <text decode="{{true}}">班级简介：\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{courseDescription}}</text>
   </view>
   <view course_Detail_bottom>
     <!-- <navigator class="course_Member">

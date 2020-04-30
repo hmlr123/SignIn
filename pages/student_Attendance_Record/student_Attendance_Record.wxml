@@ -1,2 +1,26 @@
 <!--pages/student_Attendance_Record/student_Attendance_Record.wxml-->
-<text>pages/student_Attendance_Record/student_Attendance_Record.wxml</text>
+<view>
+	<!-- 标题部分 -->
+	<view class="row_flex" style="font-weight: bold">
+		<view>课程名称</view>
+		<view>签到时间</view>
+		<view>签离时间</view>
+	</view>
+
+	<!-- 分割线 -->
+	<view class="divLine"></view>
+
+	<view style="font-size:25rpx">
+		<block wx:for="{{signRecord}}" wx:for-item="item" wx:for-index="idx">
+			<view class="row_flex">
+				<view>{{item.courseName}}</view>
+				<view>{{item.startSign}}</view>
+				<view>{{item.endSign}}</view>
+			</view>
+			<!-- 分割线 -->
+			<view class="divLine"></view>
+		</block>
+	</view>
+
+
+</view>
