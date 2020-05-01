@@ -6,6 +6,8 @@
     "pages/course_index/course_index",   
     "pages/create_course/create_course",
     "pages/course_detail/course_detail", 
+    "pages/class_member/class_member", 
+    "pages/edit_class/edit_class", 
 
     "pages/message/message",
     "pages/system_detail/system_detail",

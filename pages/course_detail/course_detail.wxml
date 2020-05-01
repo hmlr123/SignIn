@@ -11,19 +11,19 @@
     <image src="../../image/member.png"></image>
     </navigator> -->
 
-    <navigator class="course_Member">
-    <image src="../../image/member.png"></image>
-    <text class="style1">成 员</text>
+    <navigator url="/pages/class_member/class_member" class="course_Member" hover-class="noshadow">
+      <image src="../../image/member.png"></image>
+      <text class="style1">成 员</text>
     </navigator>
 
-    <navigator class="course_Member">
-    <image src="../../image/notice_Course.png"></image>
-    <text class="style1">公 告</text>
+    <navigator url="/pages/homework_detail/homework_detail" class="course_Member" hover-class="noshadow">
+      <image src="../../image/notice_Course.png"></image>
+      <text class="style1">公 告</text>
     </navigator>
 
-    <navigator class="course_Member">
-    <image src="../../image/class.png"></image>
-    <text class="style1">课 堂</text>    
+    <navigator url="/pages/edit_class/edit_class" class="course_Member" hover-class="noshadow">
+      <image src="../../image/class.png"></image>
+      <text class="style1">设 置</text>
     </navigator>
   </view>
 </view>

@@ -1,0 +1,35 @@
+<!--pages/edit_class/edit_class.wxml-->
+<view class="edit_title">
+  <text>请输入课程详情</text>
+  <view class="edit_Save">
+    <navigator url="/pages/mine/mine" hover-class='register_hover' class="register">
+      <view class="edit_Save_Item">
+        <image src="../../image/arrow_Gou.png" class="icon_Gou"></image>
+        <text>保存</text>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+<view>
+  <view class="edit_Detail">
+    <text class="edit_Detail_Name">班级名称</text>
+    <input type='text' placeholder="请输入班级名称" placeholder-style='font-size: 14px;color: #999999;'></input>
+  </view>
+
+  <view class="edit_Detail">
+    <text class="edit_Detail_Id">课程名称</text>
+    <input type='text' placeholder="请输入课程名称" placeholder-style='font-size: 14px;color: #999999;'></input>
+  </view>
+
+  <view class="edit_Detail">
+    <text class="edit_Detail_Tel">教师姓名</text>
+    <input type='text' placeholder="请输入教师姓名" placeholder-style='font-size: 14px;color: #999999;'></input>
+  </view>
+
+  <view class="edit_Detail">
+    <text class="edit_Detail_Email">课程简介</text>
+    <input type='text' placeholder="请输入课程简介" placeholder-style='font-size: 14px;color: #999999;'></input>
+  </view>
+
+</view>

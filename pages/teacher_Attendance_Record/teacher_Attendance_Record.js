@@ -1,7 +1,8 @@
 // pages/student_Attendance_Record/student_Attendance_Record.js
 // 获取全局实例
 const app = getApp()
-const base_url = app.globalData.base_url
+// 引入模块
+const Request = require("../../utils/request")
 
 // 时间工具类
 var time = require('../../utils/util.js');
@@ -13,13 +14,6 @@ Page({
   data: {
 
     signRecord: []
-    // // 课程名称
-    // courseName: '',
-    // // 签到时间
-    // startSign: '',
-    // // 签离时间
-    // endSign: ''
-
   },
 
 
@@ -28,12 +22,9 @@ Page({
    * @param {*} e 
    */
   loadSignHistory: function (e) {
-    var userId = app.globalData.userInfo.id
     var that = this
-    wx.request({
-      url: base_url + "courseSignIn/getCourseSignIns/" + userId,
-      success: function (res) {
-        // 解析数据
+    Request.get("/courseSignIn/getCourseSignIns")
+      .then(res => {
         var data = res.data.data
         console.log(data)
         var tmp = []
@@ -41,8 +32,8 @@ Page({
           for (var i = 0; i < data.length; i++) {
             var tmp_data = {
               courseName: data[i].courseName == null ? "暂无数据" : data[i].courseName,
-              startSign: data[i].startTime == null ? "暂无数据" : time.formatTimeTwo(new Date(data[i].startTime), 'Y/M/D h:m:s'),
-              endSign: data[i].endTime == null ? "尚未签离" : time.formatTimeTwo(new Date(data[i].endTime), 'Y/M/D h:m:s')
+              startSign: data[i].startTime == null ? "暂无数据" : time.formatTime(new Date(data[i].startTime)),
+              endSign: data[i].endTime == null ? "尚未签离" : time.formatTime(new Date(data[i].endTime))
             }
             tmp.push(tmp_data)
           }
@@ -50,8 +41,8 @@ Page({
             signRecord: tmp
           })
         }
-      }
-    })
+      })
+      .catch(err => {})
   },
 
   /**

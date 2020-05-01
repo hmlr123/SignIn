@@ -1,42 +1,18 @@
-// pages/notice_detail/notice_detail.js
-// 获取全局实例
-const app = getApp()
-// 引入模块
-const Request = require("../../utils/request")
-// 时间工具类
-var time = require('../../utils/util.js');
+// pages/edit_class/edit_class.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    notice: ''
-  },
 
-  getNoticeAndUpdateFlag: function (uuid) {
-    var that = this
-    Request.get("/notice/userRead/" + uuid)
-      .then(res => {
-        console.log(res)
-        res.data.data.publishTime = time.formatTime(new Date((res.data.data.publishTime)))
-        that.setData({
-          notice: res.data.data
-        })
-        // 将消息存储在本地
-        wx.setStorage({
-          data: res.data.data,
-          key: 'my_message',
-        })
-      })
-      .catch(err => {})
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getNoticeAndUpdateFlag(options.uuid)
+
   },
 
   /**

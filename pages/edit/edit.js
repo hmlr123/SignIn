@@ -1,7 +1,9 @@
 // pages/edit/edit.js
 // 获取全局实例
 const app = getApp()
-const base_url = app.globalData.base_url
+// 引入模块
+const Request = require("../../utils/request")
+
 
 Page({
   /**
@@ -17,22 +19,18 @@ Page({
 
   userSubmit: function (data) {
     var arg = {
-      id: this.data.id,
       userName: data.detail.value.username,
       number: data.detail.value.number,
       tel: data.detail.value.tel,
       email: data.detail.value.email,
     }
-    wx.request({
-      url: base_url + "user/editUserInfo",
-      method: 'POST',
-      data: arg,
-      complete: function (res) {
-        wx.showModal({
-          title: res.data.msg,
-        })
-      }
+    Request.post("/user/editUserInfo",arg)
+    .then(res=>{
+      wx.showModal({
+        title: res.data.msg,
+      })
     })
+    .catch(err=>{})
   },
 
   /**
@@ -41,26 +39,17 @@ Page({
    */
   loadUserInfo: function () {
     var that = this
-    var userId = app.globalData.userInfo.id;
-    wx.request({
-      url: base_url + "user/getUserInfo" + "/" + userId,
-      success: function (res) {
-        console.log(res)
-        that.setData({
-          id: res.data.data.id,
-          username: res.data.data.userName,
-          number: res.data.data.number,
-          tel: res.data.data.tel,
-          email: res.data.data.email
-        })
-      },
-      fail: function (res) {
-        console.log(res)
-      },
-      complete: function (res) {
-        console.log(that.data)
-      }
+    Request.get("/user/getUserInfo")
+    .then(res=>{
+      that.setData({
+        id: res.data.data.id,
+        username: res.data.data.userName,
+        number: res.data.data.number,
+        tel: res.data.data.tel,
+        email: res.data.data.email
+      })
     })
+    .catch(err=>{})
   },
 
   /**

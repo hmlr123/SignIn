@@ -1,7 +1,9 @@
 // pages/create_Course/create_Course.js
 // 获取全局实例
 const app = getApp()
-const base_url = app.globalData.base_url
+// 引入模块
+const Request = require("../../utils/request")
+
 Page({
 
   /**
@@ -12,24 +14,16 @@ Page({
   },
 
   createCourse:function(data) {
-    var userId = app.globalData.userInfo.id;
-    wx.request({
-      url: base_url + "course/addCourse",
-      method:'POST',
-      data: {
-        teacherId:userId,
-        className:data.detail.value.className,
-        courseName: data.detail.value.courseName,
-        teacherName: data.detail.value.teacherName,
-        courseDescription:data.detail.value.courseDesc
-      },
-      complete:function(res) {
-        wx.showModal({
-          title:res.data.msg
-        })
-      }
-    })
-    data.detail.value.courseName
+    Request.post("/course/addCourse",{
+      className:data.detail.value.className,
+      courseName: data.detail.value.courseName,
+      teacherName: data.detail.value.teacherName,
+      courseDescription:data.detail.value.courseDesc
+    }).then(res=>{
+      wx.showModal({
+        title:res.data.msg
+      })
+    }).catch(err=>{})
   },
 
   /**

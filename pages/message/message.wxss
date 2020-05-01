@@ -38,14 +38,22 @@ page {
 .message_Date {
   display: block;
   float: right;
+  font-size: 10px;
+  color: #bfbfbf;
   margin-right: 20px;
 }
 
 .mymessage_Card_Content {
-  display: inline-block;
   font-size: 14px;
   color: #bfbfbf;
   margin-top: 4px;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  /* margin-right: 40rpx; */
 }
 
 .mymessage_Card_Item .message_num {

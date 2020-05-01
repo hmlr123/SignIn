@@ -1,0 +1,31 @@
+<!--pages/class_member/class_member.wxml-->
+<view class="title">
+  <text>班级成员</text>
+</view>
+<view class="content">
+  <view class="teacher">
+    <text class="teacher_title">授课教师</text>
+    <view class="teacher_detail">
+      <image src="../../image/teacher.png"></image>
+      <text>梨花带雨</text>
+    </view>
+  </view>
+
+  <view class="student">
+    <text class="student_title">学生</text>
+    <view class="student_detail">
+      <image src="../../image/student.png"></image>
+      <text>梨花带雨</text>
+    </view>
+  </view>
+
+  <view class="student_detail">
+    <image src="../../image/student1.png"></image>
+    <text>梨花带雨</text>
+  </view>
+
+  <view class="student_detail">
+    <image src="../../image/student2.png"></image>
+    <text>梨花带雨</text>
+  </view>
+</view>

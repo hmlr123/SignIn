@@ -8,6 +8,20 @@ Page({
 
   },
 
+  clearCatch:function() {
+    wx.showModal({
+      title:"是否需要清空缓存",
+      success:function(res) {
+        if(res.confirm) {
+          wx.clearStorage({
+            complete: (res) => {},
+          })
+        }
+      }
+    })
+
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

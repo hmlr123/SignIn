@@ -1,9 +1,8 @@
 // pages/course_index/course_index.js
 // 获取全局实例
 const app = getApp()
-const base_url = app.globalData.base_url
-// 学生输入得课程码
-var conrseCode = ""
+// 引入模块
+const Request = require("../../utils/request")
 
 Page({
 
@@ -20,20 +19,20 @@ Page({
     // 是否显示输入弹出框 输入班级码
     hiddenmodalput: true,
     // 当前选择的学生课程ID
-    curStuCourseId:-1,
+    curStuCourseId: -1,
     // 当前选择的教师课程ID
-    curTeachCourseId:-1,
-    model_title:'标题',
+    curTeachCourseId: -1,
+    model_title: '标题',
     // 输入框类型 用于区分操作 0 加入课程 1 签到码 2签离码
-    input_type:0
+    input_type: 0
   },
 
-/****************************************页面逻辑操作*****************************************/
+  /****************************************页面逻辑操作*****************************************/
 
- /**
-  * tab标签选择
-  * tab框
-  */
+  /**
+   * tab标签选择
+   * tab框
+   */
   selected: function (e) {
     let that = this
     console.log(e)
@@ -54,16 +53,16 @@ Page({
     }
   },
 
-/**
- *  课程管理 弹出菜单    我听得课程
- */
+  /**
+   *  课程管理 弹出菜单    我听得课程
+   */
   classManage: function (e) {
     // 获取选择的课程ID
     this.data.curStuCourseId = e.currentTarget.dataset.courseid
-  //  var  signCode= this.data.input_value
+    //  var  signCode= this.data.input_value
     var that = this
     wx.showActionSheet({
-      itemList: ['签到', '签离','请假', '退出班级'],
+      itemList: ['签到', '签离', '请假', '退出班级'],
       itemColor: '#ef9ba8',
       success(res) {
         if (res.tapIndex === 0) {
@@ -73,32 +72,32 @@ Page({
             // 弹出输入框
             hiddenmodalput: false,
             // 设置标题
-            model_title:'请输入签到码',
+            model_title: '请输入签到码',
             // 操作类型
-            input_type:1
+            input_type: 1
           })
         }
         // 签离
         if (res.tapIndex === 1) {
-            // 跳转请假页面
-            console.log('点击了签离开')
-            // 弹出输入签到码
-            that.setData({
-              // 弹出输入框
-              hiddenmodalput: false,
-              // 设置标题
-              model_title:'请输入签离码',
-              // 操作类型
-              input_type:2
-            })
+          // 跳转请假页面
+          console.log('点击了签离开')
+          // 弹出输入签到码
+          that.setData({
+            // 弹出输入框
+            hiddenmodalput: false,
+            // 设置标题
+            model_title: '请输入签离码',
+            // 操作类型
+            input_type: 2
+          })
         }
         // 请假
         if (res.tapIndex === 2) {
           // 跳转请假页面
           console.log('点击了请假')
-      }
+        }
         // 退出班级
-        if(res.tapIndex === 3) {
+        if (res.tapIndex === 3) {
           console.log('点击了退出班级');
           // 弹出框
           wx.showModal({
@@ -120,20 +119,20 @@ Page({
   },
 
 
-/**
- * 我教得课程管理
- * @param {*} e 
- */
-  myclassManage: function(e) {
+  /**
+   * 我教得课程管理
+   * @param {*} e 
+   */
+  myclassManage: function (e) {
     var that = this
     var arg = {
       // 课程ID
-      courseId : e.currentTarget.dataset.courseid,
+      courseId: e.currentTarget.dataset.courseid,
       // 签到码
       signCode: this.data.input_value
     }
     wx.showActionSheet({
-      itemList: ['发起签到', '结束签到','解散班级'],
+      itemList: ['发起签到', '结束签到', '解散班级'],
       itemColor: '#ef9ba8',
       success(res) {
         if (res.tapIndex === 0) {
@@ -141,19 +140,19 @@ Page({
           that.teachSign(arg)
         }
         // 结束签到
-        if(res.tapIndex === 1) {
-           that.teachEndSign(arg)
+        if (res.tapIndex === 1) {
+          that.teachEndSign(arg)
         }
         // 解散班级
-        if(res.tapIndex === 2) {
+        if (res.tapIndex === 2) {
           // 解散班级
           wx.showModal({
             title: '提示',
             content: '是否解散班级',
             success: function (res) {
-              if(res.confirm) {
+              if (res.confirm) {
                 that.dismissCourse(arg)
-              }else if (res.cancel) {
+              } else if (res.cancel) {
                 console.log('取消解散班级')
               }
             }
@@ -163,10 +162,10 @@ Page({
     })
   },
 
-/**
- * 加号按钮
- * @param {*} e 
- */
+  /**
+   * 加号按钮
+   * @param {*} e 
+   */
   openActionsheet: function (e) {
     var that = this
     wx.showActionSheet({
@@ -182,9 +181,9 @@ Page({
             // 弹出输入框
             hiddenmodalput: false,
             // 设置标题
-            model_title:'请输入课程码',
+            model_title: '请输入课程码',
             // 设置操作类型 用于区分网络请求
-            input_type:0
+            input_type: 0
           })
         }
         if (res.tapIndex === 1) {
@@ -218,14 +217,14 @@ Page({
   },
 
   // 确定添加课程按钮 modal
-  addCourseConfirm: function (e) { 
+  addCourseConfirm: function (e) {
     // 使用Input_type区分操作类型
     var input_type = this.data.input_type
     // 获取当前所操作课程的ID
     var curCourseId = this.data.curStuCourseId
-    if(input_type === 0) {
-        // 加入课程方法
-        this.joinCourse(e)
+    if (input_type === 0) {
+      // 加入课程方法
+      this.joinCourse(e)
     }
     if (input_type === 1) {
       // 输入签到码 
@@ -236,7 +235,7 @@ Page({
       }
       this.stuSign(arg)
     }
-    if(input_type ===2) {
+    if (input_type === 2) {
       // 签离
       var arg = {
         courseId: curCourseId,
@@ -248,219 +247,152 @@ Page({
     this.addCourseConfirmCancel(e)
   },
 
-/********************************网络相关************************************/
+  /********************************网络相关************************************/
 
-/**
- * 教师发起签到
- * @param {*} e 
- */
-teachSign:function(arg) {
-  wx.request({
-    url: base_url + "courseSignIn/startSignIn",
-    method: 'POST',
-    data: arg,
-    success: function(e) {
-    },
-    fail:function(e) {
-    },
-    complete:function(e) {
-      wx.showModal({
-        title:'签到码',
-        content:e.data.msg
-      })
-    }
-  })
-},
-
-/**
- * 教师发起结束签到
- * @param {}} e 
- */
-teachEndSign: function(arg) {
-  wx.request({
-    url: base_url + "courseSignIn/endSignIn",
-    method: 'POST',
-    data: arg,
-    success: function(e){},
-    fail: function(e) {console.log(e)},
-    complete: function(e) {
-      wx.showModal({
-        title:'签离码',
-        content:e.data.msg
-      })
-    }
-  })
-},
-
-/**
- * 学生签到 网络请求
- * @param {*} e 
- */
-stuSign:function(arg) {
-  var userId = app.globalData.userInfo.id
-  var studentName = app.globalData.userInfo.userName
-  console.log(arg)
-  wx.request({
-    url: base_url + "signIn/signIn",
-    method:"POST",
-    data: {
-      // 伪数据 studentId studentName
-      studentId:userId,
-      studentName:studentName,
-      courseId:arg.courseId,
-      signCode:arg.signCode
-    },
-    success: function (res) {},
-    fail: function (e) {console.log(e)},
-    complete: function (e) {
-      console.log(e)
-            // 弹出框
-            wx.showModal({
-              title:e.data.msg
-            })
-    }
-  })
-},
-
-/**
- * 学生签离
- * @param {*} e 
- */
-stuEndSign: function(arg) {
-  wx.request({
-    url: base_url + "signIn/endSign/",
-    method: 'POST',
-    data:arg,
-    success: function(e) {},
-    fail:function(e) {console.loge},
-    complete:function(e) {
-      // 弹出框
-      wx.showModal({
-        title:e.data.msg
-      })
-    }
-  })
-},
-
-/**
- * 加入课程方法 网络请求
- * @param {*} e 
- */
-joinCourse: function(e) {
-  var that = this
-  var userId  = app.globalData.userInfo.id
-    wx.request({
-      url: base_url + "courseStudent/addCourse/" + userId + "/" + that.data.input_value,
-      success: function (res) {
-        // 刷新主页数据
-        that.loadCourse()
-      },
-      fail: function (e) {
-        wx.showToast({
-          title: '网络故障',
-          icon: 'none'
+  /**
+   * 教师发起签到
+   * @param {*} e 
+   */
+  teachSign: function (arg) {
+    Request.get("/courseSignIn/startSignIn/" + arg.courseId)
+      .then(res => {
+        wx.showModal({
+          title: '签到码',
+          content: res.data.msg
         })
-      },
-      complete: function (e) {
-        // 控制样式
-        var icon = (e.data.data === false) ? 'none' : 'success'
-        wx.showToast({
-          title: e.data.msg,
-          icon: icon
+      })
+      .catch(err => {
+        wx.showModal({
+          title: '错误！',
+          content: res.data.msg
         })
-      }
-    })
+      })
   },
 
   /**
- * 学生退出课程
- * @param {*} e 
- */
-quitCourse:function(courseId) {
-  var that = this
-  var stuId = app.globalData.userInfo.id
-  wx.request({
-    url: base_url + "courseStudent/quitClass/" + stuId + "/" + courseId,
-    success: function (res) {
-      // 重新加载数据
-      that.loadCourse();
-    },
-    fail:function(e) {
-      wx.showToast({
-        title: '网络故障',
-        icon: 'none'
+   * 教师发起结束签到
+   * @param {}} e 
+   */
+  teachEndSign: function (arg) {
+    Request.get("/courseSignIn/endSignIn/" + arg.courseId)
+      .then(res => {
+        wx.showModal({
+          title: '签离码',
+          content: res.data.msg
+        })
       })
-    },
-    complete: function(e) {
-      var msg = (e.data.data === 0) ? '退出班级失败' : '退出班级成功'
-      var icon = (e.data.data === 0) ? 'none' : 'success'
-      wx.showToast({
-        title: msg,
-        icon: icon
+      .catch(err => {
+        wx.showModal({
+          title: '错误！',
+          content: res.data.msg
+        })
       })
-    }
-  })
-},
+  },
 
-/**
- * 教师解散课程
- * @param {*} e 
- */
-dismissCourse:function(arg) {
-  var that = this
-  var icon = 'none'
-  wx.request({
-    url: base_url + "courseStudent/dismissCourse/" + arg.courseId,
-    success:function(e) {
-      icon = 'success'
-      // 重新加载数据
-      that.loadCourse()
-    },
-    fail : function(e) {
-      console.log(e)
-    },
-    complete: function(e) {
-      // 弹出提示框
-      wx.showToast({
-        title: e.data.msg,
-        icon: icon
+  /**
+   * 学生签到 网络请求
+   * @param {*} e 
+   */
+  stuSign: function (arg) {
+    console.log(arg)
+    Request.get("/signIn/signIn/" + arg.courseId + "/" + arg.signCode)
+      .then(res => {
+        wx.showModal({
+          title: res.data.msg
+        })
       })
-    }
-  })
-},
+      .catch(err => {})
+  },
+
+  /**
+   * 学生签离
+   * @param {*} e 
+   */
+  stuEndSign: function (arg) {
+    Request.get("/signIn/endSign/" + arg.courseId + "/" + arg.signCode)
+      .then(res => {
+        // 弹出框
+        wx.showModal({
+          title: res.data.msg
+        })
+      })
+      .catch(err => {})
+  },
+
+  /**
+   * 加入课程方法 网络请求
+   * @param {*} e 
+   */
+  joinCourse: function (e) {
+    var that = this
+    Request.get("/courseStudent/addCourse/" +  that.data.input_value)
+      .then(res => {
+        // 刷新主页数据
+        that.loadCourse()
+        wx.showToast({
+          title: res.data.msg
+        })
+      })
+      .catch(err => {})
+  },
+
+  /**
+   * 学生退出课程
+   * @param {*} e 
+   */
+  quitCourse: function (courseId) {
+    var that = this
+    Request.get("/courseStudent/quitClass/" + courseId)
+      .then(res => {
+        // 重新加载数据
+        that.loadCourse();
+        var msg = (res.data.data === 0) ? '退出班级失败' : '退出班级成功'
+        var icon = (res.data.data === 0) ? 'none' : 'success'
+        wx.showToast({
+          title: msg,
+          icon: icon
+        })
+      })
+      .catch(err => {})
+  },
+
+  /**
+   * 教师解散课程
+   * @param {*} e 
+   */
+  dismissCourse: function (arg) {
+    var that = this
+    Request.get("/courseStudent/dismissCourse/" + arg.courseId)
+      .then(res => {
+        // 重新加载数据
+        that.loadCourse()
+        // 弹出提示框
+        wx.showToast({
+          title: res.data.msg
+        })
+      })
+      .catch(err => {})
+  },
 
 
 
 
-/**
- * 获取课程（我的课程/我听得课程）
- */
+  /**
+   * 获取课程（我的课程/我听得课程）
+   */
   loadCourse: function () {
     var that = this
     // 加载课程信息
-    var userId  =  app.globalData.userInfo.id
-    wx.request({
-      url: base_url + "course/getCourse/" + 0 + "/" + userId,
-      method: 'GET',
-      // 成功执行
-      success: function (res) {
+    Request.get("/course/getCourse/" + 0)
+      .then(res => {
         var myCourse = app.resReslove(res)
         // 解析数据
         that.setData({
           my_course: myCourse.stuCourse,
           lis_course: myCourse.teachCourse
         })
-        console.log(myCourse)
-      },
-      // 失败执行
-      fail: function (err) {
-        console.log(err)
-      },
-      // 成功失败都会执行
-      complete: function (res) {
-
-      }
-    })
+      })
+      .catch(err => {})
   },
 
 
@@ -490,8 +422,7 @@ dismissCourse:function(arg) {
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  },
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成

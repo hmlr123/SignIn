@@ -1,0 +1,52 @@
+/* pages/edit_class/edit_class.wxss */
+.edit_title {
+  height: 50px;
+  background-color: #ef9ba8;
+}
+
+.edit_title text {
+  margin: 0 20px;
+  line-height: 50px;
+  color: #fff;
+}
+
+.edit_Save {
+  display: inline-block;
+  float: right;
+  margin-right: 20px;
+}
+
+.icon_Gou {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.edit_Save .edit_Save_Item text {
+  margin: 0;
+}
+
+.child {
+  width: 135px;
+  height: 135px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  margin: 20px auto;
+}
+
+.child image {
+  display: block;
+  width: 133px;
+  height: 133px;
+  margin: 0 auto;
+}
+
+.edit_Detail {
+  margin: 20px 30px 20px 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.edit_Detail input {
+  margin-top: 10px;
+}

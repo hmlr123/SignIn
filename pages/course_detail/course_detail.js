@@ -1,7 +1,8 @@
 // pages/course_detail/course_detail.js
 // 获取全局实例
 const app = getApp()
-const base_url = app.globalData.base_url
+// 引入模块
+const Request = require("../../utils/request")
 Page({
 
   /**
@@ -21,20 +22,19 @@ Page({
   /************************************网络***************************************/
   loadCourseInfo: function (courseId) {
     var that = this
-    wx.request({
-      url: base_url + "course/getCourseByCourseId/" + courseId,
-      success: function (res) {
-        var data = res.data.data
-        that.setData({
-          id: data.id,
-          teacherId: data.teacherId,
-          teacherName: data.teacherName,
-          courseName: data.courseName,
-          courseDetails: data.courseDetails,
-          courseDescription: data.courseDescription
-        })
-      },
+    Request.get("/course/getCourseByCourseId/" + courseId)
+    .then(res=>{
+      var data = res.data.data
+      that.setData({
+        id: data.id,
+        teacherId: data.teacherId,
+        teacherName: data.teacherName,
+        courseName: data.courseName,
+        courseDetails: data.courseDetails,
+        courseDescription: data.courseDescription
+      })
     })
+    .catch(err=>{})
   },
 
 
